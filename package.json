@@ -1,39 +1,41 @@
-{
-  "name": "hotstar-clone",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.5.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+#!/bin/bash
+
+# Define the project directory (where package.json is located)
+PROJECT_DIR="."
+
+# Function to check for and install updates
+update_packages() {
+  echo "Updating packages..."
+  npm outdated --json
+  npm update
 }
+
+# Function to fix vulnerabilities
+fix_vulnerabilities() {
+  echo "Fixing vulnerabilities..."
+  npm audit fix
+  npm audit fix --force
+}
+
+# Function to clear and reinstall node modules
+reinstall_node_modules() {
+  echo "Reinstalling node modules..."
+  rm -rf node_modules
+  rm package-lock.json
+  npm install
+}
+
+# Function to run tests
+run_tests() {
+  echo "Running tests..."
+  npm test
+}
+
+# Run the defined functions
+cd "$PROJECT_DIR"
+update_packages
+fix_vulnerabilities
+reinstall_node_modules
+run_tests
+
+echo "All tasks completed successfully."
