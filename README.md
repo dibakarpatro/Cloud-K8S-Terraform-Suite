@@ -42,8 +42,8 @@ The Terraform state file that keeps track of the current infrastructure state ma
 To get started with this project, clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/dibakarpatro/Cloud-K8S-Terraform-Suite.git
+cd Cloud-K8S-Terraform-Suite
 ```
 
 ### 2. Build the Docker Image
